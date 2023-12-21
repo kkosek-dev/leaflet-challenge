@@ -23,8 +23,8 @@ d3.json(base_url).then(function(response) {
   
   // Define a colorScale to visually display the varying depths of earthquakes 
   let colorScale = d3.scaleLinear()
-    // We define the domain as a range of depths values from the minimum value to the maximum value
-    .domain([d3.min(depths), d3.max(depths)])
+    // We define the domain as a range of depths values from the minimum value to a maximum of 120 km
+    .domain([d3.min(depths), 120])
     // We define the range as a two color gradient
     .range(['#DAFFB0' ,'#900C3F']);
 
@@ -74,14 +74,14 @@ d3.json(base_url).then(function(response) {
     // initialize a <div> to add to HTML 
     let div = L.DomUtil.create('div', 'info legend');
     // Create 2 lists to loop through and append with a corresponding color
-    let depths = ["0   ———————————————————— 80",
-                  "80  ——————————————————— 160",
-                  "160 ——————————————————- 240",
-                  "240 ——————————————————- 360",
-                  "360 ——————————————————- 420",
-                  "420 ——————————————————- 500",
-                  "500 ——————————————————- 580",
-                  "580 ——————————————————- 660"];
+    let depths = ["0  -—————————————————— 15",
+                  "15 —————————————————— 30",
+                  "30 —————————————————— 45",
+                  "45 —————————————————— 60",
+                  "60 —————————————————— 75",
+                  "75 —————————————————— 90",
+                  "90 —————————————————— 105",
+                  "105 —————————————————- 120+"];
     let colors = ['#DAFFB0','#D4E8A7',"#CCC799","#C0917D","#B27378","#9D5066","#953450","#900C3F"];
   // Initialize a header on the legend
   div.innerHTML = "<h2>Earthquake Depths Chart (km)</h2><hr>"
